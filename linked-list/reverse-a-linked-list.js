@@ -32,6 +32,24 @@ class LinkedList {
             current.next = node
         }
     }
+
+    reverse() {
+        let current = this.head;
+        let prev = null;
+        let next = null;
+        
+        if (this.head === null) {
+            return this.head
+        } else {
+            while (current !==null) {
+                next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+            this.head = prev;
+        }
+    }
 }
 
 
@@ -41,6 +59,8 @@ list.add(5);
 list.add(6);
 list.add(7);
 list.add(8);
-console.log(list);
+console.log(JSON.stringify(list));
+list.reverse()
+console.log(JSON.stringify(list));
 
 
