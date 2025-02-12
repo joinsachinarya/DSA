@@ -3,11 +3,13 @@ function twoSum(nums, target) {
     if (n < 2) return;
     const map = new Map()
     
-    for (let i = 0; i < n; i++) {
-        const diff = target - nums[i]
-        if(map.has(diff)) return [i, map.get(diff)];
+    for(let i = 0; i<n; i++){
+        let complement  = target - nums[i]
+        if(map.has(complement)){
+            return [map.get(complement), i]
+        }
         map.set(nums[i], i)
     }
-    return ans;
+    return [];
 }
 console.log(twoSum([3, 4, 5, 6], 10))
