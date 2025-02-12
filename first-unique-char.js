@@ -15,4 +15,20 @@ function sol(str) {
 
 }
 
-console.log(sol('leetcodelevel'))
+
+
+const sol2 = (str) => {
+    let map = new Map()
+    for (let i = 0; i < str.length; i++) {
+        if (map.get(str[i])) {
+            map.set(str[i], map.get(str[i]) + 1)
+        } else {
+            map.set(str[i], 1)
+        }
+    }
+    for (let i = 0; i < str.length; i++) {
+        if (map.get(str[i]) === 1) return str[i]
+    }
+    return -1;
+}
+console.log(sol2('sachin'))
